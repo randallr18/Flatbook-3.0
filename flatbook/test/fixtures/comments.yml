@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  body: MyString
+  review: one
+  user: one
+  date: 2018-08-28
+
+two:
+  body: MyString
+  review: two
+  user: two
+  date: 2018-08-28
