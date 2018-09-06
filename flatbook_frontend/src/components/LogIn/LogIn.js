@@ -6,7 +6,6 @@ class LogIn extends Component {
     render() {
       return (
         <div>
-        CHEERS
         <LogInForm />
         </div>)
     }

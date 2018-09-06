@@ -7,9 +7,10 @@ import * as actions from '../redux/actions';
 const withAuth = WrappedComponent => {
   class AuthorizedComponent extends React.Component {
 
-    // componentDidMount() {
-    //   if (localStorage.getItem('jwt') && !this.props.loggedIn) this.props.fetchCurrentUser()
-    // }
+    componentDidMount() {
+      console.log('Inside Auth Refresh')
+      if (localStorage.getItem('jwt') && !this.props.loggedIn) { this.props.fetchCurrentUser() }
+    }
 
     render () {
       console.log('HELLO')
@@ -21,7 +22,7 @@ const withAuth = WrappedComponent => {
       }
     }
 
-    return connect(mapStateToProps)(AuthorizedComponent)
+    return connect(mapStateToProps, actions)(AuthorizedComponent)
   }
 
   const mapStateToProps = (state) => ({

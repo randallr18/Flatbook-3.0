@@ -10,9 +10,9 @@ class HomePage extends Component {
 
   render() {
     return (<div>
-      Hola Amigo
       <Profile user={this.props.user}/>
       <Notification />
+      <Navigation />
       </div>)
   }
 }

@@ -1,0 +1,9 @@
+
+#locator {
+  position: absolute;
+  visibility: visible;
+  left: 350px;
+  top: 120px;
+  height: 100px;
+  width: 150px;
+}
