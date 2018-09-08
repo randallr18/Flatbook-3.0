@@ -5,7 +5,7 @@ const API_URL = 'http://localhost:3000/api/v1/';
 export default class FlatbookAdapter {
 
   static getToken() {
-    return localStorage.getItem('token');
+    return localStorage.getItem('jwt');
   }
 
   static loginUser = (username, password, setCurrentUser) => {
@@ -23,6 +23,10 @@ export default class FlatbookAdapter {
         setCurrentUser(user)
       })
     }
+
+
+
+
 
   // static reviewInfo = () => {
   //   const config = {

@@ -9,6 +9,7 @@ import Projects from './components/Projects/Projects';
 import ModuleReviews from './components/Reviews/ModuleReviews';
 import InterviewReviews from './components/Reviews/InterviewReviews';
 import CareerReviews from './components/Reviews/CareerReviews';
+import EditProfile from './components/HomePage/EditProfile';
 
 class App extends Component {
   render() {
@@ -21,6 +22,7 @@ class App extends Component {
       <Route exact path="/module-reviews" component={ModuleReviews} />
       <Route exact path="/interview-reviews" component={InterviewReviews} />
       <Route exact path="/career-reviews" component={CareerReviews} />
+      <Route exact path="/edit-profile" component={EditProfile} />
       </React.Fragment>
     );
   }

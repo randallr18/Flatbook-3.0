@@ -25,9 +25,6 @@ class SignUpForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    console.log(this.state)
-    console.log(this.props)
-    console.log(this.props.signUpUser(this.state.email, this.state.password))
     this.props.signUpUser(this.state.email, this.state.password)
     this.setState({email: '', password: ''})
     // (this.state.email, this.state.password, setCurrentUser)
@@ -37,8 +34,6 @@ class SignUpForm extends Component {
 
 
   render () {
-    console.log(this.state)
-    console.log(this.props)
     return ( this.props.loggedIn ? (
       <Redirect to="/home" />
     ) : (

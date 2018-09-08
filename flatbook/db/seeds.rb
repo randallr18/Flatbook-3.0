@@ -10,7 +10,7 @@
 user1 = User.create(name: 'John', birth_date: '05/01/1999', hometown: 'Detroit' , story: 'CODER IN THE MAKING', fun_fact: 'Dated Kloe Kardasion', occupation: 'Coder', username: "sarah@gmail.com", password: "sarah")
 user2 = User.create(name: 'Sarah', birth_date: '01/18/1989', hometown: 'Houston', story: 'Learning to code', fun_fact: 'Won bingo', occupation: 'Software Engineer' )
 user3 = User.create(name: 'DAVE', birth_date: '01/04/1993', hometown: 'Los Angelos', story: 'Codin', fun_fact: 'Has 9 toes', occupation: 'Coder')
-user4 = User.create(name: 'Michael JORRDAN', birth_date: '01/01/1995', hometown: 'Managua', story: 'Fealt like codin' , fun_fact: 'Climed Everest', occupation: 'Coder' )
+user4 = User.create(name: 'Michael JORRDAN', birth_date: '01/01/1995', hometown: 'Managua', story: 'Fealt like codin' , fun_fact: 'Climed Everest', occupation: 'Coder', username: "mj@gmail.com", password: "mj" )
 user5 = User.create(name: 'The Dude', birth_date: '11/09/1900', hometown: 'Buenos Aires', story: 'Its all in the code', fun_fact: 'Won a hot dog eating contest', occupation: 'Coder', username: "dude@gmail.com", password: "dude")
 
 

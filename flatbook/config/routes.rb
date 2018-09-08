@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :reviews, only: [:index]
-      resources :users, only: [:show]
+      resources :users, only: [:show, :update]
       resources :projects, only: [:index]
       post '/login', to: 'auth#create'
       post '/signup', to: 'users#create'

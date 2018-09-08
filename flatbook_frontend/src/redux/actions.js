@@ -1,5 +1,6 @@
 import { SET_CURRENT_USER, ADD_REVIEW_INFO } from './types';
 import FlatbookAdapter from '../api/Adapter'
+import history from '../history';
 
 export function loginUser(username, password) {
   return dispatch => {
@@ -54,14 +55,30 @@ export const retrieveReviews = () => {
   const config = {
     headers: {
       "Content-Type": "application/json",
-      "Authorization": FlatbookAdapter.getToken(),
+      "Authorization": `Bearer ${localStorage.getItem('jwt')}`,
     },
   }
-
   return dispatch => {
-    fetch('http://localhost:3000/api/v1/profile/reviews', config)
+    fetch('http://localhost:3000/api/v1/reviews', config)
     .then(response => response.json())
     .then((data) => dispatch(updateReviewInfo(data)))
+  }
+}
+
+export const updateUser = (userID, user) => {
+  const config = {
+    method: 'PATCH',
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(user)
+  }
+  return dispatch => {
+  fetch(`http://localhost:3000/api/v1/users/${userID}`, config)
+  .then(res => res.json())
+  .then(({user}) => dispatch(setCurrentUser(user)))
+  .then(history.push('/home'))
   }
 }
 
