@@ -18,7 +18,7 @@ class EditProfile extends Component {
     hometown: this.props.user.hometown,
     fun_fact: this.props.user.fun_fact,
     occupation: this.props.user.occupation,
-    picture: this.props.user.picture,
+    pictures: this.props.user.pictures,
     story: this.props.user.story
 
   }
@@ -60,7 +60,7 @@ class EditProfile extends Component {
         </Form.Field>
         <Form.Field>
           <label> Picture</label>
-          <input placeholder={this.state.picture ? this.state.picture : "Add a Picture" } onChange={(event) => {this.setState({picture: event.target.value})}}/>
+          <input placeholder={this.state.pictures ? this.state.pictures : "Add a Picture" } onChange={(event) => {this.setState({pictures: event.target.value})}}/>
         </Form.Field>
         <Form.TextArea label='Story' placeholder={this.state.story ? this.state.story : 'Tell us more about you...'} onChange={(event) => {this.setState({story: event.target.value})}}/>
         <Button type='submit'>Submit</Button>

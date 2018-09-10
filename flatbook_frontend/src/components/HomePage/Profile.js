@@ -13,7 +13,7 @@ const Profile = (props) => {
   console.log(props)
   return (
     <div>
-    <Image src={"https://www.incipioworks.com/wp-content/uploads/2015/07/profile-picture-placeholder.png"} size='medium' circular />
+    <Image src={props.user.pictures ? props.user.pictures : "https://www.incipioworks.com/wp-content/uploads/2015/07/profile-picture-placeholder.png"} size='medium' circular />
     <br></br><br></br>
     Name {props.user.name}
     <br></br><br></br>

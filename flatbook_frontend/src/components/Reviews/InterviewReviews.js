@@ -1,17 +1,35 @@
 import React, { Component } from 'react';
-import ReviewNavigation from './Navigation';
+import ReviewNavigation from './ReviewNavigation';
+import withAuth from '../../hocs/withAuth';
+import { connect } from 'react-redux';
+import { retrieveReviews } from '../../redux/actions';
+import Review from './Reviews';
 
 class InterviewReviews extends Component {
 
+  populateReviews = () => {
+  const filteredReviews = this.props.reviews.filter(review => review.category === "Interview")
+  return filteredReviews.map(review => <Review key={review.id} info={review} />)
+  }
+
   render() {
+    console.log(this.props)
     return (
-      <div><ReviewNavigation /></div>
+      <div>
+      <ReviewNavigation placeholder={"Interviews"}/>
+      {this.populateReviews()}
+      </div>
 
     )
   }
 
-
-
+  componentDidMount() {
+    this.props.retrieveReviews()
+  }
 }
 
-export default InterviewReviews
+const mapStateToProps = state => ({
+  reviews: state.reviews
+})
+
+export default withAuth(connect(mapStateToProps, { retrieveReviews })(InterviewReviews));
