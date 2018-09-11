@@ -24,25 +24,8 @@ export default class FlatbookAdapter {
       })
     }
 
-
-
-
-
-  // static reviewInfo = () => {
-  //   const config = {
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       "Authorization": FlatbookAdapter.getToken(),
-  //     },
-  //   }
-  //
-  //   return fetch(`${API_URL}/reviews`, config)
-  //     .then(response => {
-  //       if(response.ok) {
-  //         return response.json();
-  //       }
-  //     })
-  //   }
-
+  static addLike = (userID, reviewID) => {
+    
+  }
 
 }

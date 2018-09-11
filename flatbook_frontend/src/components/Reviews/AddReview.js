@@ -30,7 +30,7 @@ class addReview extends Component {
   handleSubmit = (event) => {
     event.preventDefault()
     this.props.updateReviews(this.state)
-    history.push('./home')
+    history.push('./module-reviews')
   }
 
   render() {
@@ -43,7 +43,7 @@ class addReview extends Component {
           <label> Name</label>
           <input placeholder={"Title" } onChange={(event) => {this.setState({title: event.target.value})}}/>
         </Form.Field>
-        <Form.Select width={6} fluid label='Category' options={options} placeholder='Category' onChange={(event) => {console.log(event.target);this.setState({category: event.target.childNodes[0].innerHTML})}}/>
+        <Form.Select width={6} fluid label='Category' options={options} placeholder='Category' onChange={(event) => {;this.setState({category: event.target.childNodes[0].innerHTML})}}/>
         <Form.TextArea label='Review' placeholder={'Tell us more about your experience...'} onChange={(event) => {this.setState({body: event.target.value})}}/>
         <Button type='submit'>Submit</Button>
       </Form>

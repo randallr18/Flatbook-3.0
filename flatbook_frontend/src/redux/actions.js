@@ -1,4 +1,4 @@
-import { SET_CURRENT_USER, ADD_REVIEW_INFO, AUTHENTICATING_USER, LOADING_INFORMATION, UPDATE_REVIEWS } from './types';
+import { SET_CURRENT_USER, ADD_REVIEW_INFO, AUTHENTICATING_USER, LOADING_INFORMATION, ADD_PROJECT_INFO } from './types';
 import FlatbookAdapter from '../api/Adapter'
 import history from '../history';
 
@@ -103,6 +103,69 @@ return dispatch => {
   }
 }
 
+export const addReviewLike = (userID, reviewID) => {
+  return dispatch => {
+  fetch('http://localhost:3000/api/v1/review_likes', {
+    method: 'POST',
+    headers: {
+    Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({user_id: userID, review_id: reviewID})
+  })
+  .then(res => res.json())
+  .then(reviews => dispatch(updateReviewInfo(reviews)))
+  }
+}
+
+export const addComment = (userID, reviewID, reviewBody) => {
+  return dispatch => {
+  fetch('http://localhost:3000/api/v1/comments', {
+    method: 'POST',
+    headers: {
+    Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({user_id: userID, review_id: reviewID, body: reviewBody})
+  })
+  .then(res => res.json())
+  .then(reviews => dispatch(updateReviewInfo(reviews)))
+  }
+}
+
+
+export const retrieveProjects = () => {
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${localStorage.getItem('jwt')}`,
+    },
+  }
+  return dispatch => {
+    fetch('http://localhost:3000/api/v1/projects', config)
+    .then(response => response.json())
+    .then((data) => dispatch(updateProjectInfo(data)))
+  }
+}
+
+export const addProject = (project) => {
+  const config = {
+  method: 'POST',
+  headers: {
+    Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify(project)
+}
+debugger
+return dispatch => {
+  dispatch(loadingInformation())
+  fetch('http://localhost:3000/api/v1/projects', config)
+  .then(res => res.json())
+  .then((data) => dispatch(updateProjectInfo(data)))
+  }
+}
+
 
 export const setCurrentUser = userData => ({
   type: SET_CURRENT_USER,
@@ -112,6 +175,11 @@ export const setCurrentUser = userData => ({
 export const updateReviewInfo = reviewData => ({
   type: ADD_REVIEW_INFO,
   payload: reviewData
+})
+
+export const updateProjectInfo = projectData => ({
+  type: ADD_PROJECT_INFO,
+  payload: projectData
 })
 
 export const authenticatingUser = () => ({ type: AUTHENTICATING_USER})
