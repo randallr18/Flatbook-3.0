@@ -16,21 +16,6 @@ class ProjectNavigation extends Component {
     return (
       <div>
       <Menu pointing secondary>
-  <Menu.Item
-    name='Module Reviews'
-    active={activeItem === 'Module Reviews'}
-    onClick={() => history.push("/module-reviews")}
-  />
-  <Menu.Item
-    name='Interviews'
-    active={activeItem === 'Interviews'}
-    onClick={() => history.push("/interview-reviews")}
-  />
-  <Menu.Item
-    name='Career Advancement'
-    active={activeItem === 'Career Advancement'}
-    onClick={() => history.push("/career-reviews")}
-  />
   <Menu.Menu position='right'>
     <Menu.Item
       name='Add Project'

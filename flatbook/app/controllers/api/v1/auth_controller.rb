@@ -7,7 +7,7 @@ class Api::V1::AuthController < ApplicationController
       token = encode_token(user_id: @user.id)
       render json: { user: UserSerializer.new(@user), jwt: token}, status: 202
     else
-      render json: { message: 'Invalid username and PASS'}, status: 401
+      render json: { message: 'Invalid Username or Password!'}, status: 401
     end
   end
 

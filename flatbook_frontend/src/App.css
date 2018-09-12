@@ -26,3 +26,12 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+/* body {
+
+  background-image: url('https://s3-media2.fl.yelpcdn.com/bphoto/P6EQqbOsnDuJZlI4n39_yw/o.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+} */

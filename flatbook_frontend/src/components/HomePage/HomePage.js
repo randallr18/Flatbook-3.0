@@ -9,17 +9,17 @@ import withAuth from '../../hocs/withAuth';
 class HomePage extends Component {
 
   render() {
-    console.log(this.props.user)
+    console.log(this.props)
     return (<div>
-      <Profile user={this.props.user}/>
-      <Notification />
       <Navigation />
+      <Profile user={this.props.user}/>
       </div>)
   }
 }
 
 const mapStateToProps = state => ({
-  user: state.user
+  user: state.user,
+  loggedIn: state.loggedIn
 })
 
 

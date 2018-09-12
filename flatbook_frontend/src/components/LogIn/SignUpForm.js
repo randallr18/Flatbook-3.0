@@ -4,6 +4,7 @@ import './LogInForm.css'
 import { connect } from 'react-redux';
 import { withRouter, Redirect} from 'react-router';
 import { signUpUser } from '../../redux/actions';
+import { Header, Message } from 'semantic-ui-react';
 
 
 class SignUpForm extends Component {
@@ -34,11 +35,14 @@ class SignUpForm extends Component {
 
 
   render () {
+    console.log(this.props)
     return ( this.props.loggedIn ? (
       <Redirect to="/home" />
     ) : (
       <div className="Login">
+      <Header as='h1'textAlign='center'>Flatbook</Header>
         <form onSubmit={this.handleSubmit}>
+          {this.props.failedLogin ? <Message compact error header={this.props.error} /> : null}
           <FormGroup controlId="email" bsSize="large">
             <ControlLabel>Email</ControlLabel>
             <FormControl
@@ -72,7 +76,9 @@ class SignUpForm extends Component {
 
   const mapStateToProps = state => ({
     user: state.user,
-    loggedIn: state.loggedIn
+    loggedIn: state.loggedIn,
+    failedLogin: state.failedLogin,
+    error: state.error
   })
 
 

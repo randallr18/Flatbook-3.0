@@ -6,7 +6,6 @@ class Api::V1::ProjectsController < ApplicationController
   end
 
   def create
-    byebug
     @project = Project.create(project_params)
     @user_project = UserProject.create(user_id: params["user_id"], project_id: @project.id)
     if @project.valid? && @user_project.valid?

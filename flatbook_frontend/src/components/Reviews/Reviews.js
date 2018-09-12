@@ -35,14 +35,12 @@ class Review extends Component {
 
   populateComments = () => {
     return this.props.info.comments.map(comment => {
+      console.log(comment)
       return (
-        <Comment>
-  <Comment.Avatar as='a' src='/images/avatar/small/christian.jpg' />
+        <Comment key={comment.id}>
+  <Comment.Avatar as='a' src={comment.user.pictures} />
   <Comment.Content>
-    <Comment.Author>Christian Rocha</Comment.Author>
-    <Comment.Metadata>
-      <div>2 days ago</div>
-    </Comment.Metadata>
+    <Comment.Author>{comment.user.name}</Comment.Author>
     <Comment.Text>{comment.body}</Comment.Text>
   </Comment.Content>
 </Comment>
@@ -67,13 +65,12 @@ class Review extends Component {
 
 
   render() {
-    console.log(this.state)
     return (
       <Segment text>
       <Grid columns={2} relaxed>
         <Grid.Column>
           <Header as='h2'>
-            <Image circular src={"https://www.incipioworks.com/wp-content/uploads/2015/07/profile-picture-placeholder.png"} />
+            <Image circular src={this.props.user.pictures ? this.props.user.pictures : "https://www.incipioworks.com/wp-content/uploads/2015/07/profile-picture-placeholder.png"} />
           </Header>
         </Grid.Column>
         <Grid.Column>

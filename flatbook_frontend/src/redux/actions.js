@@ -1,4 +1,4 @@
-import { SET_CURRENT_USER, ADD_REVIEW_INFO, AUTHENTICATING_USER, LOADING_INFORMATION, ADD_PROJECT_INFO } from './types';
+import { SET_CURRENT_USER, ADD_REVIEW_INFO, AUTHENTICATING_USER, LOADING_INFORMATION, ADD_PROJECT_INFO, FAILED_LOGIN, LOGOUT } from './types';
 import FlatbookAdapter from '../api/Adapter'
 import history from '../history';
 
@@ -13,11 +13,27 @@ export function loginUser(username, password) {
       },
       body: JSON.stringify({user: { username, password } })
     })
-    .then(response => response.json())
+    .then(response => {
+      if(response.ok) {
+        return response.json()
+      } else {
+        throw response
+      }
+    })
     .then(({user, jwt}) => {
+      if (!!user) {
       localStorage.setItem('jwt', jwt)
       dispatch(setCurrentUser(user))
+      }
     })
+    .catch(r => r.json().then(e => {
+      return dispatch(failedLogin(e.message))}))
+
+    // .then(response => response.json())
+    // .then(({user, jwt}) => {
+    //   localStorage.setItem('jwt', jwt)
+    //   dispatch(setCurrentUser(user))
+    // })
   }
 }
 
@@ -32,11 +48,21 @@ export const signUpUser = (username, password) => {
       },
       body: JSON.stringify({user: { username, password } })
     })
-    .then(response => response.json())
+    .then(response => {
+      if(response.ok) {
+        return response.json()
+      } else {
+        throw response
+      }
+    })
     .then(({user, jwt}) => {
+      if (!!user) {
       localStorage.setItem('jwt', jwt)
       dispatch(setCurrentUser(user))
+      }
     })
+    .catch(r => r.json().then(e => {
+      return dispatch(failedLogin(e.error))}))
   }
 }
 
@@ -157,13 +183,16 @@ export const addProject = (project) => {
   },
   body: JSON.stringify(project)
 }
-debugger
 return dispatch => {
   dispatch(loadingInformation())
   fetch('http://localhost:3000/api/v1/projects', config)
   .then(res => res.json())
   .then((data) => dispatch(updateProjectInfo(data)))
   }
+}
+
+export const logoutUser = () => {
+  return { type: LOGOUT }
 }
 
 
@@ -185,6 +214,11 @@ export const updateProjectInfo = projectData => ({
 export const authenticatingUser = () => ({ type: AUTHENTICATING_USER})
 
 export const loadingInformation = () => ({ type: LOADING_INFORMATION})
+
+export const failedLogin = errorMsg => ({
+  type: FAILED_LOGIN,
+  payload: errorMsg
+})
 
 // export const updatingReviews = () => ({
 //   type: UPDATE_REVIEWS,

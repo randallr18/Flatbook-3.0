@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 import { withRouter, Redirect} from 'react-router';
 import { Link } from 'react-router-dom';
 import { loginUser } from '../../redux/actions';
+import { Header, Message, Segment } from 'semantic-ui-react';
+import './BackgroundImage.css';
 
 
 class LogInForm extends Component {
@@ -36,11 +38,14 @@ class LogInForm extends Component {
 
 
   render () {
+    console.log(this.props)
     return ( this.props.loggedIn ? (
       <Redirect to="/home" />
     ) : (
-      <div className="Login">
+      <div className='backgroundImage' className="Login">
+      <Header as='h1'textAlign='center'>Flatbook</Header>
         <form onSubmit={this.handleSubmit}>
+        {this.props.failedLogin ? <Message compact error header={this.props.error} /> : null}
           <FormGroup controlId="email" bsSize="large">
             <ControlLabel>Email</ControlLabel>
             <FormControl
@@ -75,7 +80,9 @@ class LogInForm extends Component {
 
   const mapStateToProps = state => ({
     user: state.user,
-    loggedIn: state.loggedIn
+    loggedIn: state.loggedIn,
+    failedLogin: state.failedLogin,
+    error: state.error
   })
 
 

@@ -11,9 +11,9 @@ class Api::V1::UsersController < ApplicationController
     if @user.valid?
       payload = {user_id: @user.id}
       token = encode_token(payload)
-      render json: { user: UserSerializer.new(@user), jwt: token }
+      render json: { user: UserSerializer.new(@user), jwt: token }, status: :created
     else
-      render json: { error: "Invalid username or password"}
+      render json: { error: "Username Already Taken!"}, status: :not_acceptable
     end
   end
 

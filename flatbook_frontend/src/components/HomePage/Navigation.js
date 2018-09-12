@@ -1,18 +1,78 @@
-import React from 'react';
-import './Navigation.css';
+// import React from 'react';
+// import './Navigation.css';
+// import { NavLink } from 'react-router-dom';
+// // import { Button } from 'react-bootstrap';
+//
+//
+// const Navigation = () => {
+//   return(
+//     <div id="locator">
+//       <NavLink to="/module-reviews">Reviews</NavLink>
+//       <br></br>
+//       <NavLink to="/projects">Projects</NavLink>
+//     </div>
+//   )
+// }
+//
+//
+// export default Navigation
+
+
+
+import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-// import { Button } from 'react-bootstrap';
+import { Menu } from 'semantic-ui-react';
+import history from '../../history';
+import { connect } from 'react-redux';
+import { logoutUser } from '../../redux/actions';
 
+class Navigation extends Component {
+  state = { activeItem: this.props.placeholder }
 
-const Navigation = () => {
-  return(
-    <div id="locator">
-      <NavLink to="/module-reviews">Reviews</NavLink>
-      <br></br>
-      <NavLink to="/projects">Projects</NavLink>
-    </div>
-  )
+  handleItemClick = (e, { name }) => {
+    this.setState({ activeItem: name })
+  }
+
+  logout = () => {
+    this.props.logoutUser()
+    localStorage.removeItem('jwt');
+    history.push("/")
+  }
+
+  render () {
+    const { activeItem } = this.state
+
+    return (
+      <div>
+      <Menu size='huge' pointing secondary>
+  <Menu.Item
+    name='Reviews'
+    active={activeItem === 'Reviews'}
+    onClick={() => history.push("/module-reviews")}
+  />
+  <Menu.Item
+    name='Projects'
+    active={activeItem === 'Projects'}
+    onClick={() => history.push("/projects")}
+  />
+  <Menu.Menu position='right'>
+    <Menu.Item
+      name='Edit Profile'
+      active={activeItem === 'logout'}
+      onClick={() => history.push("/edit-profile")}
+    />
+    <Menu.Item
+      name='Log Out'
+      active={activeItem === 'logout'}
+      onClick={this.logout}
+    />
+  </Menu.Menu>
+</Menu>
+      </div>
+    )
+  }
 }
 
+const mapStateToProps = () => ({})
 
-export default Navigation
+export default connect(mapStateToProps, { logoutUser })(Navigation)
