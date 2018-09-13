@@ -4,6 +4,7 @@ import withAuth from '../../hocs/withAuth';
 import { connect } from 'react-redux';
 import { updateReviews } from '../../redux/actions';
 import history from '../../history';
+import './ReviewNavigation.css'
 
 
 
@@ -34,10 +35,9 @@ class addReview extends Component {
   }
 
   render() {
-    console.log(this.state.category)
     return (
       <div>
-      <Header as='h1'textAlign='center'>Add Review</Header>
+      <Header className="background-nav" as='h1'textAlign='center'>Add Review</Header>
       <Form onSubmit={this.handleSubmit}>
         <Form.Field width={6}>
           <label> Name</label>

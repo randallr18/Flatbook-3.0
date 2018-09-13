@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import { Menu } from 'semantic-ui-react';
+import { Menu, Header } from 'semantic-ui-react';
 import history from '../../history';
+import '../Reviews/ReviewNavigation.css'
 
 class ProjectNavigation extends Component {
   state = { activeItem: this.props.placeholder }
@@ -14,7 +15,8 @@ class ProjectNavigation extends Component {
     const { activeItem } = this.state
 
     return (
-      <div>
+      <div className="background-nav">
+      <Header as='h1'textAlign='center'>Projects</Header>
       <Menu pointing secondary>
   <Menu.Menu position='right'>
     <Menu.Item

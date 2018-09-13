@@ -4,6 +4,8 @@ import withAuth from '../../hocs/withAuth';
 import { connect } from 'react-redux';
 import { addProject } from '../../redux/actions';
 import history from '../../history';
+import '../Reviews/ReviewNavigation.css'
+
 
 
 
@@ -34,10 +36,9 @@ class addReview extends Component {
   }
 
   render() {
-    console.log(this.state.category)
     return (
       <div>
-      <Header as='h1'textAlign='center'>Add Project</Header>
+      <Header className="background-nav" as='h1'textAlign='center'>Add Project</Header>
       <Form onSubmit={this.handleSubmit}>
         <Form.Field width={6}>
           <label> Title </label>

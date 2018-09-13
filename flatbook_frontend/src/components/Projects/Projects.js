@@ -30,8 +30,8 @@ class Project extends Component {
   render() {
     this.reformatProjectArray()
     return (<div>
-      <Header as='h1'textAlign='center'>Projects</Header>
       <ProjectNavigation />
+      <br></br><br></br>
       {this.projectDisplay()}
       </div>)
   }

@@ -15,7 +15,7 @@ class ProjectDisplaySingle extends Component {
       <Header textAlign='centered' as='h2'>{this.props.project.name}</Header>
       <Grid columns={2} relaxed>
         <Grid.Column>
-        <br></br>
+
           <Header textAlign='centered' as='h2'>
             <Image circular src={this.props.project.users[0].pictures ? this.props.project.users[0].pictures : "https://www.incipioworks.com/wp-content/uploads/2015/07/profile-picture-placeholder.png"} />
           </Header>
@@ -24,15 +24,11 @@ class ProjectDisplaySingle extends Component {
         </Grid.Column>
         <Grid.Column>
         <br></br>
-        <br></br>
-        <br></br><br></br>
           <Container><strong >Category</strong> - {this.props.project.category}</Container>
           <br></br>
         </Grid.Column>
       </Grid>
-      <br></br>
       <Container><strong >Github Link</strong> - <a href={this.props.project.github} target="_blank">{this.props.project.github}</a></Container>
-      <br></br>
       <Segment>
       <Header textAlign='left' as='h4'>Description</Header>
       {this.props.project.description}

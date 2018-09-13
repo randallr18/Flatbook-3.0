@@ -4,6 +4,7 @@ import withAuth from '../../hocs/withAuth';
 import { connect } from 'react-redux';
 import { retrieveReviews } from '../../redux/actions';
 import Review from './Reviews';
+import { Grid } from 'semantic-ui-react'
 
 class ModuleReviews extends Component {
 

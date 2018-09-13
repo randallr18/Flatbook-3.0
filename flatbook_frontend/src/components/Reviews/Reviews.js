@@ -58,6 +58,7 @@ class Review extends Component {
   handleAddComment = () => {
     if (this.state.addComment) {
       this.props.addComment(this.props.user.id, this.props.info.id, this.state.addComment)
+      document.getElementById("comment-form").value = '';
       // const updateComments = this.state.comments.push(this.state.addComment);
       this.setState({
         // comments: updateComments,
@@ -68,12 +69,15 @@ class Review extends Component {
 
 
   render() {
+    console.log(this.state)
     return (
-      <Segment text>
+      <div>
+      <br></br><br></br>
+      <Segment text secondary>
       <Grid columns={3} relaxed>
         <Grid.Column>
           <Header as='h2'>
-            <Image circular src={this.props.user.pictures ? this.props.user.pictures : "https://www.incipioworks.com/wp-content/uploads/2015/07/profile-picture-placeholder.png"} />
+            <Image circular src={this.props.info.user.pictures ? this.props.info.user.pictures : "https://www.incipioworks.com/wp-content/uploads/2015/07/profile-picture-placeholder.png"} />
           </Header>
           <Button as='div' labelPosition='right'>
           <Button icon onClick={this.addLike}>
@@ -100,11 +104,13 @@ class Review extends Component {
         {this.state.collapsed ? null : this.populateComments()}
         {this.state.collapsed ? null :
           <Form  reply>
-            <Form.TextArea placeholder={this.state.addComment ? this.state.addComment : 'Add comment...'} onChange={(event) => {this.setState({addComment: event.target.value})}}/>
+            <Form.TextArea id="comment-form" placeholder={this.state.addComment ? this.state.addComment : 'Add comment...'} onChange={(event) => {this.setState({addComment: event.target.value})}}/>
             <Button onClick={this.handleAddComment} content='Add Comment' labelPosition='left' icon='edit' primary />
           </Form>}
       </Comment.Group>
       </Segment>
+      <br></br>
+      </div>
     )
   }
 

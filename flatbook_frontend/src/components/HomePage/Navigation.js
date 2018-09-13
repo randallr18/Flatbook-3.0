@@ -23,8 +23,8 @@ class Navigation extends Component {
     const { activeItem } = this.state
 
     return (
-      <div className="background-nav">
-      <Menu inverted size='huge' pointing secondary>
+      <div className="background">
+      <Menu size='huge' pointing secondary>
   <Menu.Item
     name='Reviews'
     active={activeItem === 'Reviews'}

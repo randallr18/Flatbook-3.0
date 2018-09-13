@@ -7,6 +7,8 @@ import { updateUser } from '../../redux/actions';
 import { withRouter } from 'react-router-dom';
 // import { createBrowserHistory } from 'history';
 import history from '../../history'
+import './Profile.css'
+
 
 
 class EditProfile extends Component {
@@ -32,11 +34,9 @@ class EditProfile extends Component {
 
 
   render() {
-    console.log(this.props)
     return (
       <div>
-      <br></br>
-      <Header as='h1' color="blue" textAlign='center'>Edit Profile</Header>
+      <Header className="background-info" as='h1'textAlign='center'>Edit Profile</Header>
       <Form onSubmit={this.handleSubmit}>
         <Form.Field width={4}>
           <label> Name</label>

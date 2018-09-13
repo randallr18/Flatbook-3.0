@@ -4,6 +4,7 @@ import withAuth from '../../hocs/withAuth';
 import { Image, Button, Segment, Container, Grid, Header } from 'semantic-ui-react';
 import { withRouter } from 'react-router-dom';
 import ReroutingButton from './ReroutingButton';
+import './Profile.css'
 
 
 
@@ -19,10 +20,10 @@ const Profile = (props) => {
             <Image centered src={props.user.pictures ? props.user.pictures : "https://www.incipioworks.com/wp-content/uploads/2015/07/profile-picture-placeholder.png"} size='medium' circular />
           </Grid.Column>
           <Grid.Column>
-            <Segment > <strong>Name</strong> - {props.user.name} </Segment>
-            <Segment ><strong>Hometown</strong> - {props.user.hometown}</Segment>
-            <Segment ><strong>Occupation</strong> - {props.user.occupation}</Segment>
-            <Segment ><strong>Fun Fact</strong> - {props.user.fun_fact}</Segment>
+            <Segment> <strong>Name</strong> - {props.user.name} </Segment>
+            <div className="background-info"><Segment><strong>Hometown</strong> - {props.user.hometown}</Segment></div>
+            <Segment className="background-info"><strong>Occupation</strong> - {props.user.occupation}</Segment>
+            <Segment className="background-info"><strong>Fun Fact</strong> - {props.user.fun_fact}</Segment>
           </Grid.Column>
         </Grid>
         <br></br><br></br>
