@@ -139,8 +139,13 @@ export const addReviewLike = (userID, reviewID) => {
   },
   body: JSON.stringify({user_id: userID, review_id: reviewID})
   })
-  .then(res => res.json())
-  .then(reviews => dispatch(updateReviewInfo(reviews)))
+  .then(res => {
+    if(res.ok) {
+      return res.json() }})
+  .then(reviews => {
+    if(!!reviews) {
+    return dispatch(updateReviewInfo(reviews))}
+  })
   }
 }
 

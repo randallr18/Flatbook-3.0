@@ -1,13 +1,15 @@
 import React, { Component } from 'react'
-// import { FormGroup, FormControl, ControlLabel, Button, Grid, Form, } from 'react-bootstrap';
+// import { FormGroup, FormControl, ControlLabel, Button } from 'react-bootstrap';
 import './LogInForm.css'
 import { connect } from 'react-redux';
 import { withRouter, Redirect} from 'react-router';
-import { signUpUser } from '../../redux/actions';
+import { Link } from 'react-router-dom';
+import { loginUser } from '../../redux/actions';
 import { Header, Message, Segment, Button, Form, Grid, Image } from 'semantic-ui-react';
+import './BackgroundImage.css';
 
 
-class SignUpForm extends Component {
+class LogInForm extends Component {
 
   state = {
     email: "",
@@ -17,8 +19,9 @@ class SignUpForm extends Component {
   // validateForm() {
   //   return this.state.email.length > 0 && this.state.password.length > 0;
   // }
-  //
+
   // handleChange = event => {
+  //   console.log(event.target.id)
   //   this.setState({
   //     [event.target.id]: event.target.value
   //   });
@@ -26,8 +29,8 @@ class SignUpForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.props.signUpUser(this.state.email, this.state.password)
-    this.setState({email: '', password: ''})
+    this.props.loginUser(this.state.email, this.state.password)
+    this.setState({username: '', password: ''})
     // (this.state.email, this.state.password, setCurrentUser)
 
   }
@@ -36,6 +39,7 @@ class SignUpForm extends Component {
 
   render () {
     console.log(this.props)
+    console.log(this.state)
     return ( this.props.loggedIn ? (
       <Redirect to="/home" />
     ) : (
@@ -66,12 +70,15 @@ class SignUpForm extends Component {
                   placeholder={this.state.password ? this.state.password : "Password" } onChange={(event) => {this.setState({password: event.target.value})}}
                 />
                 <Button color='blue' fluid size='large'>
-                  Sign Up
+                  Login
                 </Button>
               </Segment>
             </Form>
             {this.props.failedLogin ? <Message compact error header={this.props.error} /> : null}
             <br></br>
+            <Message compact color='blue' >
+              <a href='http://localhost:3001/signup'>Sign Up</a>
+            </Message>
           </Grid.Column>
         </Grid>
 
@@ -88,4 +95,7 @@ class SignUpForm extends Component {
   })
 
 
-export default withRouter(connect(mapStateToProps, { signUpUser })(SignUpForm))
+export default withRouter(connect(mapStateToProps, { loginUser })(LogInForm))
+
+
+// <Image src='/logo.png' />

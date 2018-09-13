@@ -5,9 +5,9 @@ class Api::V1::ReviewLikesController < ApplicationController
     @review_like = ReviewLike.create(review_like_params)
     if @review_like.valid?
       @reviews = Review.all
-      render json: @reviews, include: '*.*'
+      render json: @reviews, include: '*.*', status: :created
     else
-    render json: { error: "Unsuccessful update"}
+    render json: { error: "Unsuccessful update"}, status: :not_acceptable
     end
   end
 

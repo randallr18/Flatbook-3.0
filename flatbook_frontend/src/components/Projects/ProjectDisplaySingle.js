@@ -9,26 +9,29 @@ class ProjectDisplaySingle extends Component {
   }
 
   render () {
+    console.log(this.props.poject)
     return (
       <Segment text>
       <Header textAlign='centered' as='h2'>{this.props.project.name}</Header>
       <Grid columns={2} relaxed>
         <Grid.Column>
-          <Header as='h2'>
+        <br></br>
+          <Header textAlign='centered' as='h2'>
             <Image circular src={this.props.project.users[0].pictures ? this.props.project.users[0].pictures : "https://www.incipioworks.com/wp-content/uploads/2015/07/profile-picture-placeholder.png"} />
           </Header>
-          <br></br>
-          <Container> {this.props.project.users[0].name}</Container>
+          <Container textAlign='center'> {this.props.project.users[0].name}</Container>
           <br></br>
         </Grid.Column>
         <Grid.Column>
-          <Segment>{this.props.project.category}</Segment>
+        <br></br>
+        <br></br>
+        <br></br><br></br>
+          <Container><strong >Category</strong> - {this.props.project.category}</Container>
           <br></br>
-          <Segment>{this.props.project.github}</Segment>
-
         </Grid.Column>
       </Grid>
       <br></br>
+      <Container><strong >Github Link</strong> - <a href={this.props.project.github} target="_blank">{this.props.project.github}</a></Container>
       <br></br>
       <Segment>
       <Header textAlign='left' as='h4'>Description</Header>

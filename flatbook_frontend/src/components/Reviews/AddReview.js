@@ -46,6 +46,7 @@ class addReview extends Component {
         <Form.Select width={6} fluid label='Category' options={options} placeholder='Category' onChange={(event) => {;this.setState({category: event.target.childNodes[0].innerHTML})}}/>
         <Form.TextArea label='Review' placeholder={'Tell us more about your experience...'} onChange={(event) => {this.setState({body: event.target.value})}}/>
         <Button type='submit'>Submit</Button>
+        <Button onClick={() => history.push('/module-reviews')}>Back</Button>
       </Form>
       </div>
     )

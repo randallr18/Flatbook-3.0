@@ -11,15 +11,19 @@ class Review extends Component {
     likes: this.props.info.review_likes.length,
     collapsed: true,
     comments: this.props.info.comments,
-    addComment: null
+    addComment: null,
+    addedLike: false
   }
 
   addLike = () => {
-    const newCount = this.state.likes + 1;
     this.props.addReviewLike(this.props.user.id, this.props.info.id)
+    if (!this.state.addedLike) {
+    const newCount = this.state.likes + 1;
     this.setState({
-      likes: newCount
+      likes: newCount,
+      addedLike: true
     })
+  }
   }
 
   handleCheckbox = () => {
@@ -35,10 +39,9 @@ class Review extends Component {
 
   populateComments = () => {
     return this.props.info.comments.map(comment => {
-      console.log(comment)
       return (
         <Comment key={comment.id}>
-  <Comment.Avatar as='a' src={comment.user.pictures} />
+  <Comment.Avatar as='a' src={comment.user.pictures ? comment.user.pictures : "https://www.incipioworks.com/wp-content/uploads/2015/07/profile-picture-placeholder.png"} />
   <Comment.Content>
     <Comment.Author>{comment.user.name}</Comment.Author>
     <Comment.Text>{comment.body}</Comment.Text>
@@ -67,32 +70,31 @@ class Review extends Component {
   render() {
     return (
       <Segment text>
-      <Grid columns={2} relaxed>
+      <Grid columns={3} relaxed>
         <Grid.Column>
           <Header as='h2'>
             <Image circular src={this.props.user.pictures ? this.props.user.pictures : "https://www.incipioworks.com/wp-content/uploads/2015/07/profile-picture-placeholder.png"} />
           </Header>
+          <Button as='div' labelPosition='right'>
+          <Button icon onClick={this.addLike}>
+            <Icon name='heart' />
+            Like
+          </Button>
+
+          <Label as='a' basic pointing='left'>
+            {this.state.likes}
+          </Label>
+          </Button>
+
         </Grid.Column>
         <Grid.Column>
-          <Header as='h2'>{this.props.info.title}</Header>
+          <Header textAlign="center" as='h2'>{this.props.info.title}</Header>
         </Grid.Column>
       </Grid>
-      <br></br>
-      <Button as='div' labelPosition='right'>
-      <Button icon onClick={this.addLike}>
-        <Icon name='heart' />
-        Like
-      </Button>
 
-      <Label as='a' basic pointing='left'>
-        {this.state.likes}
-      </Label>
-      </Button>
       <br></br>
-      <br></br>
-
       <p>{this.props.info.body}</p>
-      <br></br><br></br><br></br>
+      <br></br>
       <Checkbox defaultChecked label='Collapse comments' onChange={this.handleCheckbox} />
       <Comment.Group>
         {this.state.collapsed ? null : this.populateComments()}
@@ -104,6 +106,16 @@ class Review extends Component {
       </Comment.Group>
       </Segment>
     )
+  }
+
+  componentDidMount = () => {
+    this.props.info.review_likes.map( like => {
+      if (like.user_id === this.props.user.id) {
+        this.setState ({
+          addedLike: true
+        })
+      }
+    })
   }
 }
 

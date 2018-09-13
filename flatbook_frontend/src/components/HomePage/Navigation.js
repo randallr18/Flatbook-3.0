@@ -1,30 +1,10 @@
-// import React from 'react';
-// import './Navigation.css';
-// import { NavLink } from 'react-router-dom';
-// // import { Button } from 'react-bootstrap';
-//
-//
-// const Navigation = () => {
-//   return(
-//     <div id="locator">
-//       <NavLink to="/module-reviews">Reviews</NavLink>
-//       <br></br>
-//       <NavLink to="/projects">Projects</NavLink>
-//     </div>
-//   )
-// }
-//
-//
-// export default Navigation
-
-
-
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Menu } from 'semantic-ui-react';
 import history from '../../history';
 import { connect } from 'react-redux';
 import { logoutUser } from '../../redux/actions';
+import './Navigation.css'
 
 class Navigation extends Component {
   state = { activeItem: this.props.placeholder }
@@ -43,8 +23,8 @@ class Navigation extends Component {
     const { activeItem } = this.state
 
     return (
-      <div>
-      <Menu size='huge' pointing secondary>
+      <div className="background-nav">
+      <Menu inverted size='huge' pointing secondary>
   <Menu.Item
     name='Reviews'
     active={activeItem === 'Reviews'}

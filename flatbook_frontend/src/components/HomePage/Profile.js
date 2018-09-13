@@ -9,8 +9,6 @@ import ReroutingButton from './ReroutingButton';
 
 const Profile = (props) => {
 
-
-  console.log(props)
   return (
     <div>
     <br></br><br></br>
@@ -21,17 +19,16 @@ const Profile = (props) => {
             <Image centered src={props.user.pictures ? props.user.pictures : "https://www.incipioworks.com/wp-content/uploads/2015/07/profile-picture-placeholder.png"} size='medium' circular />
           </Grid.Column>
           <Grid.Column>
-          <Segment.Group>
-            <Segment vertical>Name - {props.user.name} </Segment>
-            <Segment vertical>Hometown - {props.user.hometown}</Segment>
-            <Segment vertical>Occupation - {props.user.occupation}</Segment>
-            <Segment vertical>Fun Fact - {props.user.fun_fact}</Segment>
-            </Segment.Group>
+            <Segment > <strong>Name</strong> - {props.user.name} </Segment>
+            <Segment ><strong>Hometown</strong> - {props.user.hometown}</Segment>
+            <Segment ><strong>Occupation</strong> - {props.user.occupation}</Segment>
+            <Segment ><strong>Fun Fact</strong> - {props.user.fun_fact}</Segment>
           </Grid.Column>
         </Grid>
         <br></br><br></br>
         <Segment>
-        <Header textAlign='center' as='h4'>Story</Header>
+        <Header textAlign='left' as='h3'>Story</Header>
+        <br></br>
         {props.user.story}
         </Segment>
 </Container>

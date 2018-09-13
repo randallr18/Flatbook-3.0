@@ -50,6 +50,7 @@ class addReview extends Component {
         </Form.Field>
         <Form.TextArea label='Description' placeholder={'Tell us more about your experience...'} onChange={(event) => {this.setState({description: event.target.value})}}/>
         <Button type='submit'>Submit</Button>
+        <Button onClick={() => history.push('/projects')}>Back</Button>
       </Form>
       </div>
     )
