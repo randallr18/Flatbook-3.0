@@ -25,6 +25,7 @@ class CareerReviews extends Component {
   componentDidMount() {
     this.props.retrieveReviews()
   }
+
 }
 
 const mapStateToProps = state => ({

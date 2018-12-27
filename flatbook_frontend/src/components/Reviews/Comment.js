@@ -3,6 +3,7 @@ import { Comment } from 'semantic-ui-react';
 
 
 class Comments extends Component {
+
   render () {
     return (
       <Fragment>
@@ -20,6 +21,7 @@ class Comments extends Component {
 </Fragment>
     )
   }
+
 }
 
 export default Comments
