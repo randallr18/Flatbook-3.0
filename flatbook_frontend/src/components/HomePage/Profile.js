@@ -32,7 +32,7 @@ const Profile = (props) => {
         <br></br>
         {props.user.story}
         </Segment>
-</Container>
+    </Container>
 
 
     </div>

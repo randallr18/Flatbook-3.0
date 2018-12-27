@@ -5,7 +5,6 @@ import { Segment, Header, Image, Grid, Container } from 'semantic-ui-react';
 class ProjectDisplaySingle extends Component {
 
   addLike = () => {
-
   }
 
   render () {
