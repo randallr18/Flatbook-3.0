@@ -22,7 +22,4 @@ export default class FlatbookAdapter {
         setCurrentUser(user)
       })
     }
-
-
-
 }

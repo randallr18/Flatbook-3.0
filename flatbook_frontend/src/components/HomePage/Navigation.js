@@ -25,33 +25,34 @@ class Navigation extends Component {
     return (
       <div className="background">
       <Menu size='huge' pointing secondary>
-  <Menu.Item
-    name='Reviews'
-    active={activeItem === 'Reviews'}
-    onClick={() => history.push("/module-reviews")}
-  />
-  <Menu.Item
-    name='Projects'
-    active={activeItem === 'Projects'}
-    onClick={() => history.push("/projects")}
-  />
-  <Menu.Menu position='right'>
-    <Menu.Item
-      name='Edit Profile'
-      active={activeItem === 'logout'}
-      onClick={() => history.push("/edit-profile")}
-    />
-    <Menu.Item
-      name='Log Out'
-      active={activeItem === 'logout'}
-      onClick={this.logout}
-    />
-  </Menu.Menu>
-</Menu>
+        <Menu.Item
+        name='Reviews'
+        active={activeItem === 'Reviews'}
+        onClick={() => history.push("/module-reviews")}
+        />
+        <Menu.Item
+        name='Projects'
+        active={activeItem === 'Projects'}
+        onClick={() => history.push("/projects")}
+        />
+        <Menu.Menu position='right'>
+        <Menu.Item
+          name='Edit Profile'
+          active={activeItem === 'logout'}
+          onClick={() => history.push("/edit-profile")}
+          />
+        <Menu.Item
+          name='Log Out'
+          active={activeItem === 'logout'}
+          onClick={this.logout}
+          />
+        </Menu.Menu>
+      </Menu>
       </div>
     )
   }
 }
+
 
 const mapStateToProps = () => ({})
 

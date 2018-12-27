@@ -13,7 +13,6 @@ import './Profile.css'
 
 class EditProfile extends Component {
 
-
   state = {
     name: this.props.user.name,
     birth_date: this.props.user.birth_date,
@@ -22,7 +21,6 @@ class EditProfile extends Component {
     occupation: this.props.user.occupation,
     pictures: this.props.user.pictures,
     story: this.props.user.story
-
   }
 
 
@@ -30,8 +28,6 @@ class EditProfile extends Component {
     event.preventDefault();
     this.props.updateUser(this.props.user.id, this.state)
   }
-
-
 
   render() {
     return (
