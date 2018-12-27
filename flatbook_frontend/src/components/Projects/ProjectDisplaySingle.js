@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Segment, Header, Image, Grid, Button, Icon, Label, Container } from 'semantic-ui-react';
+import { Segment, Header, Image, Grid, Container } from 'semantic-ui-react';
 
 
 class ProjectDisplaySingle extends Component {
@@ -9,14 +9,13 @@ class ProjectDisplaySingle extends Component {
   }
 
   render () {
-    console.log(this.props.poject)
     return (
       <Segment text>
-      <Header textAlign='centered' as='h2'>{this.props.project.name}</Header>
+      <Header textAlign='center' as='h2'>{this.props.project.name}</Header>
       <Grid columns={2} relaxed>
         <Grid.Column>
 
-          <Header textAlign='centered' as='h2'>
+          <Header textAlign='center' as='h2'>
             <Image circular src={this.props.project.users[0].pictures ? this.props.project.users[0].pictures : "https://www.incipioworks.com/wp-content/uploads/2015/07/profile-picture-placeholder.png"} />
           </Header>
           <Container textAlign='center'> {this.props.project.users[0].name}</Container>

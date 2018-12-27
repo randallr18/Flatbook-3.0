@@ -38,8 +38,6 @@ class LogInForm extends Component {
 
 
   render () {
-    console.log(this.props)
-    console.log(this.state)
     return ( this.props.loggedIn ? (
       <Redirect to="/home" />
     ) : (
@@ -76,6 +74,8 @@ class LogInForm extends Component {
             </Form>
             {this.props.failedLogin ? <Message compact error header={this.props.error} /> : null}
             <br></br>
+
+
             <Message compact color='blue' >
               <a href='http://localhost:3001/signup'>Sign Up</a>
             </Message>

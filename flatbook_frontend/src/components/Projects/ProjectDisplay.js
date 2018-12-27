@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import { Grid, Image, Segment, Header, Button, Label } from 'semantic-ui-react';
+import { Grid } from 'semantic-ui-react';
 import ProjectDisplaySingle from './ProjectDisplaySingle';
 
 class ProjectDisplay extends Component {
 
 
   render() {
-    console.log(this.props)
     return (
       <Grid divided='vertically'>
         <Grid.Row columns={2}>

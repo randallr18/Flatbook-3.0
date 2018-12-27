@@ -14,7 +14,6 @@ class ModuleReviews extends Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <div>
       <ReviewNavigation placeholder={"Module Reviews"}/>

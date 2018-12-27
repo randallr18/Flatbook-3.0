@@ -1,5 +1,4 @@
 import { SET_CURRENT_USER, ADD_REVIEW_INFO, AUTHENTICATING_USER, LOADING_INFORMATION, ADD_PROJECT_INFO, FAILED_LOGIN, LOGOUT } from './types';
-import FlatbookAdapter from '../api/Adapter'
 import history from '../history';
 
 export function loginUser(username, password) {

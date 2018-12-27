@@ -39,7 +39,7 @@ class EditProfile extends Component {
       <Header className="background-info" as='h1'textAlign='center'>Edit Profile</Header>
       <Form onSubmit={this.handleSubmit}>
         <Form.Field width={4}>
-          <label> Name</label>
+          <label> Name </label>
           <input placeholder={this.state.name ? this.state.name : "Name" } onChange={(event) => {this.setState({name: event.target.value})}}/>
         </Form.Field>
         <Form.Field width={4}>

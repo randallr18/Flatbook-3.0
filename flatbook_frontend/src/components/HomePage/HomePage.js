@@ -9,7 +9,6 @@ import withAuth from '../../hocs/withAuth';
 class HomePage extends Component {
 
   render() {
-    console.log(this.props)
     return (<div>
       <Navigation />
       <Profile user={this.props.user}/>

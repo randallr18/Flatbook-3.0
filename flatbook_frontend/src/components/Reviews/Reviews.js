@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Header, Image, Grid, Segment, Divider, Button, Icon, Label, Checkbox, Comment, Form } from 'semantic-ui-react';
+import { Header, Image, Grid, Segment, Button, Icon, Label, Checkbox, Comment, Form } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { addReviewLike, addComment } from '../../redux/actions';
 import Comments from './Comment';
@@ -69,7 +69,6 @@ class Review extends Component {
 
 
   render() {
-    console.log(this.state)
     return (
       <div>
       <br></br><br></br>

@@ -21,7 +21,6 @@ class LogInForm extends Component {
   }
 
   handleChange = event => {
-    console.log(event.target.id)
     this.setState({
       [event.target.id]: event.target.value
     });
@@ -38,7 +37,6 @@ class LogInForm extends Component {
 
 
   render () {
-    console.log(this.props)
     return ( this.props.loggedIn ? (
       <Redirect to="/home" />
     ) : (

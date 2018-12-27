@@ -13,7 +13,6 @@ class InterviewReviews extends Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <div>
       <ReviewNavigation placeholder={"Interviews"}/>

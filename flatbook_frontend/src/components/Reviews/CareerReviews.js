@@ -13,7 +13,6 @@ class CareerReviews extends Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <div>
       <ReviewNavigation placeholder={"Career Advancement"}/>
