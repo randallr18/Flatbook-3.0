@@ -43,27 +43,27 @@ class EditProfile extends Component {
           <input placeholder={this.state.name ? this.state.name : "Name" } onChange={(event) => {this.setState({name: event.target.value})}}/>
         </Form.Field>
         <Form.Field width={4}>
-          <label> Birth Date</label>
+          <label> Birth Date </label>
           <input placeholder={this.state.birth_date ? this.state.birth_date : "Birth Date" } onChange={(event) => {this.setState({birth_date: event.target.value})}} />
         </Form.Field>
         <Form.Field width={4}>
-          <label> Hometown</label>
+          <label> Hometown </label>
           <input placeholder={this.state.hometown ? this.state.hometown : "Hometown" } onChange={(event) => {this.setState({hometown: event.target.value})}}/>
         </Form.Field>
         <Form.Field width={4}>
-          <label> Fun Fact</label>
+          <label> Fun Fact </label>
           <input placeholder={this.state.fun_fact ? this.state.fun_fact : "Fun Fact" } onChange={(event) => {this.setState({fun_fact: event.target.value})}}/>
         </Form.Field>
         <Form.Field width={4}>
-          <label> Occupation</label>
+          <label> Occupation </label>
           <input placeholder={this.state.occupation ? this.state.occupation : "Occupation" } onChange={(event) => {this.setState({occupation: event.target.value})}}/>
         </Form.Field>
         <Form.Field width={4}>
-          <label> Picture</label>
+          <label> Picture </label>
           <input placeholder={this.state.pictures ? this.state.pictures : "Add a Picture" } onChange={(event) => {this.setState({pictures: event.target.value})}}/>
         </Form.Field>
         <Form.TextArea label='Story' placeholder={this.state.story ? this.state.story : 'Tell us more about you...'} onChange={(event) => {this.setState({story: event.target.value})}}/>
-        <Button type='submit'>Submit</Button>
+        <Button type='submit'> Submit </Button>
         <Button onClick={() => history.push('/home')}>Back</Button>
       </Form>
       </div>
