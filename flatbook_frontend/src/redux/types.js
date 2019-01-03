@@ -8,3 +8,7 @@ export const LOADING_INFORMATION = 'LOADING_INFORMATION';
 export const ADD_PROJECT_INFO = 'ADD_PROJECT_INFO';
 export const FAILED_LOGIN = 'FAILED_LOGIN';
 export const LOGOUT = 'LOGOUT';
+
+
+
+// export const stateOptions = [{text: 'Module 1'}, {text: 'Module 2'}];

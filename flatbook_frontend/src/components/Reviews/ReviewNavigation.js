@@ -16,6 +16,7 @@ class Navigation extends Component {
 
     return (
       <div className="background-nav">
+      <br></br>
       <Header as='h1' textAlign='center'>Reviews</Header>
       <Menu pointing secondary>
   <Menu.Item
