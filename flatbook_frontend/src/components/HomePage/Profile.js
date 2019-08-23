@@ -17,18 +17,21 @@ const Profile = (props) => {
     <br></br><br></br>
     <Grid columns={2}>
           <Grid.Column>
-            <Image centered src={props.user.pictures ? props.user.pictures : "https://www.incipioworks.com/wp-content/uploads/2015/07/profile-picture-placeholder.png"} size='medium' circular />
+            <Image centered src={props.user.pictures ? props.user.pictures : "https://cdn2.vectorstock.com/i/thumb-large/80/91/person-gray-photo-placeholder-little-boy-vector-22808091.jpg"} size='medium' circular />
           </Grid.Column>
           <Grid.Column>
+            <br></br><br></br>
             <Segment> <strong>Name</strong> - {props.user.name} </Segment>
             <div className="background-info"><Segment><strong>Hometown</strong> - {props.user.hometown}</Segment></div>
             <Segment className="background-info"><strong>Occupation</strong> - {props.user.occupation}</Segment>
             <Segment className="background-info"><strong>Fun Fact</strong> - {props.user.fun_fact}</Segment>
           </Grid.Column>
         </Grid>
-        <br></br><br></br>
+        <br></br><br></br><br></br><br></br>
+
         <Segment>
-        <Header textAlign='left' as='h3'>Story</Header>
+
+        <Header textAlign='center' as='h3'>Personal Journey</Header>
         <br></br>
         {props.user.story}
         </Segment>
