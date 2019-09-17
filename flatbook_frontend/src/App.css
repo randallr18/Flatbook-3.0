@@ -32,16 +32,7 @@
 https://flatiron-v3-production.imgix.net/20180521FlatironSchool-Selects-79.jpg?h=50&w=100&fit=crop&crop=faces&ixlib=imgixjs-3.3.0
 https://s3-media2.fl.yelpcdn.com/bphoto/P6EQqbOsnDuJZlI4n39_yw/o.jpg */
 
-body {
 
-  background-image: url('./Pictures/BackgroundPhoto.jpg');
-  /* background-size: cover; */
-  /* background-position: center; */
-  /* background-repeat: no-repeat; */
-  /* background-color: transparent; */
-  background-attachment: scroll;
-
-}
 
 .background-photo {
 

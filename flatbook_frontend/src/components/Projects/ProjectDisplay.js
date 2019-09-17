@@ -7,8 +7,9 @@ class ProjectDisplay extends Component {
 
   render() {
     return (
-      <Grid divided='vertically'>
-        <Grid.Row columns={2}>
+
+
+      <Grid columns='equal' >
           <Grid.Column>
             <ProjectDisplaySingle project={this.props.projects[0]}/>
           </Grid.Column>
@@ -17,7 +18,6 @@ class ProjectDisplay extends Component {
           <Grid.Column>
             {this.props.projects[1] ? <ProjectDisplaySingle project={this.props.projects[1]} /> : null}
           </Grid.Column>
-        </Grid.Row>
       </Grid>
     )
   }

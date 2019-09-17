@@ -53,7 +53,7 @@ class LogInForm extends Component {
           <Grid.Column style={{ maxWidth: 450 }}>
             <Form size='large' onSubmit={this.handleSubmit}>
               <Segment>
-              <Header as='h1' color='blue' textAlign='center'>
+              <Header as='h1' textAlign='center'>
                  Flatbook
               </Header>
                 <Form.Input fluid icon='user' iconPosition='left' placeholder='E-mail address'
@@ -67,7 +67,7 @@ class LogInForm extends Component {
                   type='password'
                   placeholder={this.state.password ? this.state.password : "Password" } onChange={(event) => {this.setState({password: event.target.value})}}
                 />
-                <Button color='blue' fluid size='large'>
+                <Button className='changecolor' fluid size='large'>
                   Login
                 </Button>
               </Segment>

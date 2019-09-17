@@ -11,6 +11,15 @@
 }
 
 
+.ui.header.changecolorheader {
+  color: #89ABE3FF;
+}
+.ui.button.changecolor {
+  background-color: #89ABE3FF;
+  color: #FCF6F5FF;
+}
+
+
 /* body {
   margin: 0;
   padding: 0;

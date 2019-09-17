@@ -3,6 +3,7 @@ import { Header, Image, Grid, Segment, Button, Icon, Label, Checkbox, Comment, F
 import { connect } from 'react-redux';
 import { addReviewLike, addComment } from '../../redux/actions';
 import Comments from './Comment';
+import './Reviews.css';
 
 
 class Review extends Component {
@@ -72,42 +73,81 @@ class Review extends Component {
     return (
       <div>
       <br></br><br></br>
+
+
+    <Grid columns='equal'>
+      <Grid.Column width={1}>
+      </Grid.Column>
+      <Grid.Column >
+
+
+
       <Segment text secondary>
       <Grid columns={3} relaxed>
         <Grid.Column>
-          <Header as='h2'>
-            <Image circular src={this.props.info.user.pictures ? this.props.info.user.pictures : "https://www.incipioworks.com/wp-content/uploads/2015/07/profile-picture-placeholder.png"} />
-          </Header>
-          <Button as='div' labelPosition='right'>
-          <Button icon onClick={this.addLike}>
-            <Icon name='heart' />
-            Like
-          </Button>
+            <Image circular className="moveimage" width="65" height="65" src={this.props.info.user.pictures ? this.props.info.user.pictures : "https://www.incipioworks.com/wp-content/uploads/2015/07/profile-picture-placeholder.png"} />
 
-          <Label as='a' basic pointing='left'>
-            {this.state.likes}
-          </Label>
-          </Button>
 
         </Grid.Column>
         <Grid.Column>
-          <Header textAlign="center" as='h2'>{this.props.info.title}</Header>
+          <Header textAlign="center" className="moveheader" as='h1'>{this.props.info.title}</Header>
+        </Grid.Column>
+
+        <Grid.Column>
+        <br></br>
+
+        <Button as='div' labelPosition='right' floated='right'>
+        <Button icon onClick={this.addLike}>
+          <Icon name='heart' />
+          Like
+        </Button>
+
+        <Label as='a' basic pointing='left'>
+          {this.state.likes}
+        </Label>
+        </Button>
+
+
         </Grid.Column>
       </Grid>
 
       <br></br>
-      <p>{this.props.info.body}</p>
+      <p className="body">{this.props.info.body}</p>
       <br></br>
-      <Checkbox defaultChecked label='Collapse comments' onChange={this.handleCheckbox} />
-      <Comment.Group>
-        {this.state.collapsed ? null : this.populateComments()}
-        {this.state.collapsed ? null :
-          <Form  reply>
-            <Form.TextArea id="comment-form" placeholder={this.state.addComment ? this.state.addComment : 'Add comment...'} onChange={(event) => {this.setState({addComment: event.target.value})}}/>
-            <Button onClick={this.handleAddComment} content='Add Comment' labelPosition='left' icon='edit' primary />
-          </Form>}
-      </Comment.Group>
+
+
+      <Grid columns='equal'>
+        <Grid.Column>
+        <Checkbox defaultChecked label='Collapse comments' onChange={this.handleCheckbox} />
+        <Comment.Group>
+          {this.state.collapsed ? null : this.populateComments()}
+          {this.state.collapsed ? null :
+            <Form  reply>
+              <Form.TextArea id="comment-form" placeholder={this.state.addComment ? this.state.addComment : 'Add comment...'} onChange={(event) => {this.setState({addComment: event.target.value})}}/>
+              <Button onClick={this.handleAddComment} content='Add Comment' labelPosition='left' icon='edit' primary />
+            </Form>}
+        </Comment.Group>
+        </Grid.Column>
+        <Grid.Column width={5}>
+        #DIFFICULT #SINATRA
+        </Grid.Column>
+      </Grid>
+
+
+
+
+
       </Segment>
+
+
+      </Grid.Column>
+      <Grid.Column width={1}>
+      </Grid.Column>
+    </Grid>
+
+
+
+
       <br></br>
       </div>
     )

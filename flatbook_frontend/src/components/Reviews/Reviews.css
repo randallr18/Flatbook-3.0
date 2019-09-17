@@ -1,0 +1,20 @@
+.ui.image.moveimage
+{
+    position: relative;
+    top: 7px;
+}
+
+
+.ui.header.moveheader
+{
+    position: relative;
+    top: 15px;
+    /* font-family: "Times New Roman", Times, serif; */
+}
+
+ui.margin-top.body
+{
+    /* font-family: "Times New Roman", Times, serif; */
+    /* font-size: 15px; */
+
+}
