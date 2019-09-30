@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { Header, Image, Grid, Segment, Button, Icon, Label, Checkbox, Comment, Form } from 'semantic-ui-react';
 import { connect } from 'react-redux';
-import { addReviewLike, addComment } from '../../redux/actions';
+import { addReviewLike, addComment, updateUserSearch } from '../../redux/actions';
 import Comments from './Comment';
 import './Reviews.css';
+import history from '../../history';
+
 
 
 class Review extends Component {
@@ -53,7 +55,10 @@ class Review extends Component {
   }
 
 
-
+  handleSearchUser = () => {
+    this.props.updateUserSearch(this.props.info.user);
+    history.push("/usersearch");
+  }
 
 
   handleAddComment = () => {
@@ -85,7 +90,7 @@ class Review extends Component {
       <Segment text secondary>
       <Grid columns={3} relaxed>
         <Grid.Column>
-            <Image circular className="moveimage" width="65" height="65" src={this.props.info.user.pictures ? this.props.info.user.pictures : "https://www.incipioworks.com/wp-content/uploads/2015/07/profile-picture-placeholder.png"} />
+            <Image onClick={this.handleSearchUser} circular className="moveimage" width="65" height="65" src={this.props.info.user.pictures ? this.props.info.user.pictures : "https://www.incipioworks.com/wp-content/uploads/2015/07/profile-picture-placeholder.png"} />
 
 
         </Grid.Column>
@@ -169,4 +174,4 @@ const mapStateToProps = (state) => ({
 })
 
 
-export default connect(mapStateToProps, { addReviewLike, addComment } )(Review)
+export default connect(mapStateToProps, { updateUserSearch, addReviewLike, addComment } )(Review)

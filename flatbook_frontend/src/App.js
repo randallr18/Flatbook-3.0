@@ -12,6 +12,8 @@ import CareerReviews from './components/Reviews/CareerReviews';
 import EditProfile from './components/HomePage/EditProfile';
 import AddReview from './components/Reviews/AddReview';
 import AddProject from './components/Projects/AddProject';
+import Users from './components/Users/Users';
+import UserSearch from './components/Users/UserDisplaySolo';
 
 class App extends Component {
   render() {
@@ -27,6 +29,8 @@ class App extends Component {
       <Route exact path="/edit-profile" component={EditProfile} />
       <Route exact path="/add-review" component={AddReview} />
       <Route exact path="/add-project" component={AddProject} />
+      <Route exact path="/users" component={Users} />
+      <Route exact path="/usersearch" component={UserSearch} />
       </React.Fragment>
     );
   }

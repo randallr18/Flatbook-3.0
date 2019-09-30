@@ -28,8 +28,7 @@ class ProjectNavigation extends Component {
 
     return (
       <div className="background-nav">
-      <Header as='h1'textAlign='center'>Projects</Header>
-      <Menu pointing secondary>
+      <Menu pointing secondary size='large'>
         <Input focus placeholder='Search...' onChange={(event) => {this.setState({search_word: event.target.value})}}/>
         <Dropdown placeholder='State' search selection options={stateOptions}  />
         <Menu.Menu position='right'>

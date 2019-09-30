@@ -4,6 +4,8 @@ import withAuth from '../../hocs/withAuth';
 import { connect } from 'react-redux';
 import { retrieveReviews } from '../../redux/actions';
 import Review from './Reviews';
+import { Header } from 'semantic-ui-react'
+
 
 class InterviewReviews extends Component {
 
@@ -16,6 +18,7 @@ class InterviewReviews extends Component {
     return (
       <div>
       <ReviewNavigation placeholder={"Interviews"}/>
+      <Header as='h1'textAlign='center'>Reviews</Header>
       {this.populateReviews()}
       </div>
 

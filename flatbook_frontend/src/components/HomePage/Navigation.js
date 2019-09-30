@@ -24,7 +24,7 @@ class Navigation extends Component {
 
     return (
       <div className="background">
-      <Menu size='huge' pointing secondary>
+      <Menu size='large' pointing secondary>
         <Menu.Item
         name='Reviews'
         active={activeItem === 'Reviews'}
@@ -34,6 +34,11 @@ class Navigation extends Component {
         name='Projects'
         active={activeItem === 'Projects'}
         onClick={() => history.push("/projects")}
+        />
+        <Menu.Item
+        name='Users'
+        active={activeItem === 'Users'}
+        onClick={() => history.push("/users")}
         />
         <Menu.Menu position='right'>
         <Menu.Item

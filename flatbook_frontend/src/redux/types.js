@@ -8,6 +8,8 @@ export const LOADING_INFORMATION = 'LOADING_INFORMATION';
 export const ADD_PROJECT_INFO = 'ADD_PROJECT_INFO';
 export const FAILED_LOGIN = 'FAILED_LOGIN';
 export const LOGOUT = 'LOGOUT';
+export const ADD_USERS_INFO = 'ADD_USERS_INFO';
+export const ADD_USER_SEARCH_DATA = 'ADD_USER_SEARCH_DATA';
 
 
 

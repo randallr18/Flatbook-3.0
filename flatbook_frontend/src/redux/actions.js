@@ -1,4 +1,4 @@
-import { SET_CURRENT_USER, ADD_REVIEW_INFO, AUTHENTICATING_USER, LOADING_INFORMATION, ADD_PROJECT_INFO, FAILED_LOGIN, LOGOUT } from './types';
+import { SET_CURRENT_USER, ADD_REVIEW_INFO, AUTHENTICATING_USER, LOADING_INFORMATION, ADD_PROJECT_INFO, FAILED_LOGIN, LOGOUT, ADD_USERS_INFO, ADD_USER_SEARCH_DATA } from './types';
 import history from '../history';
 
 export function loginUser(username, password) {
@@ -92,6 +92,23 @@ export const retrieveReviews = () => {
     .then((data) => dispatch(updateReviewInfo(data)))
   }
 }
+
+
+export const retrieveUsers = () => {
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${localStorage.getItem('jwt')}`,
+    },
+  }
+  return dispatch => {
+    fetch('http://localhost:3000/api/v1/users', config)
+    .then(response => response.json())
+    .then((data) => dispatch(updateUsersInfo(data)))
+  }
+}
+
+
 
 export const updateUser = (userID, user) => {
   const config = {
@@ -195,6 +212,21 @@ return dispatch => {
   }
 }
 
+export const updateUserSearch = (data) => {
+  // console.log(data)
+  return dispatch => {
+    dispatch(updateUserSearchInfo(data))
+  }
+}
+
+// > dispatch(updateUserSearchData(  {type: ADD_USER_SEARCH_DATA,
+//   payload: userSearchData}));
+
+export const updateUserSearchInfo = userSearchData => ({
+  type: ADD_USER_SEARCH_DATA,
+  payload: userSearchData
+})
+
 export const logoutUser = () => {
   return { type: LOGOUT }
 }
@@ -210,10 +242,17 @@ export const updateReviewInfo = reviewData => ({
   payload: reviewData
 })
 
+export const updateUsersInfo = usersData => ({
+  type: ADD_USERS_INFO,
+  payload: usersData
+})
+
 export const updateProjectInfo = projectData => ({
   type: ADD_PROJECT_INFO,
   payload: projectData
 })
+
+
 
 export const authenticatingUser = () => ({ type: AUTHENTICATING_USER})
 

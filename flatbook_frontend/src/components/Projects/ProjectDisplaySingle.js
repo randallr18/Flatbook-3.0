@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
 import { Segment, Header, Image, Grid, Container } from 'semantic-ui-react';
+import { connect } from 'react-redux';
+import { updateUserSearch } from '../../redux/actions';
+import history from '../../history';
 
 
 class ProjectDisplaySingle extends Component {
 
   addLike = () => {
+  }
+
+  handleSearchUser = () => {
+    this.props.updateUserSearch(this.props.project.users[0]);
+    history.push("/usersearch");
   }
 
   render () {
@@ -15,7 +23,7 @@ class ProjectDisplaySingle extends Component {
         <Grid.Column>
 
           <Header textAlign='center' as='h2'>
-            <Image circular src={this.props.project.users[0].pictures ? this.props.project.users[0].pictures : "https://www.incipioworks.com/wp-content/uploads/2015/07/profile-picture-placeholder.png"} />
+            <Image onClick={this.handleSearchUser} circular className="moveimage" width="65" height="65" src={this.props.project.users[0].pictures ? this.props.project.users[0].pictures : "https://www.incipioworks.com/wp-content/uploads/2015/07/profile-picture-placeholder.png"} />
           </Header>
           <Container textAlign='center'> {this.props.project.users[0].name}</Container>
           <br></br>
@@ -36,7 +44,11 @@ class ProjectDisplaySingle extends Component {
   }
 }
 
-export default ProjectDisplaySingle;
+const mapStateToProps = (state) => ({
+})
+
+
+export default connect(mapStateToProps, {updateUserSearch })(ProjectDisplaySingle);
 
 
 // <Button as='div' labelPosition='right'>
